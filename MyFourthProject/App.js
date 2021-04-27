@@ -1,49 +1,22 @@
 import React from 'react';
-import {Text, View, Image, ScrollView } from 'react-native';
+import {Text, View, SectionList } from 'react-native';
 
+export default  StatesApp = () =>{
+  return(
+    <View style={{flex: 1, paddingTop:22}}>
+      <SectionList
+        sections={[
+          {title: 'A', data: ['Alabama', 'Alaska', 'Arkansas']}
+        ]}
 
-const dog = {
-  uri: '',
-  width: 64,
-  height: 64
-};
-
-export default  MyScrollViewApp = () =>{
-  
-  
-   <ScrollView style={{padding: 40}}>
-     <Text style = {{fontSize: 80}}> 
-     Try to scroll down
-     </Text>
-     <Image source={require('./assts/icon.png')} style={{width: 64, height: 64}}/>
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Text style = {{fontSize: 80}}> 
-     Try to scroll down, again
-     </Text>
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-     <Image source={{dog}} />
-
-
-
-   </ScrollView>
-  ;
+        renderItem={({item}) => <Text style={{padding: 10, fontSize: 20, heigh: 44}}> {item} </Text>}
+        renderSectionHeader={({section}) => <Text style={{paddingTop: 4, paddingLeft: 10, paddingRight: 10, paddingBottom: 4, 
+        fontSize: 14, 
+        fontWeight: 'bold', 
+        backgroundColor: '#9Fa8DA',}}>{section.title}</Text>}
+        keyExtractor={(item,index) =>index}
+        />
+    </View>
+  );
   }
 
